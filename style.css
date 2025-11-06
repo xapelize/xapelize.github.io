@@ -39,7 +39,7 @@ h3 {
 img {
     display: block; 
     margin: 0 auto;
-    width: 70%;
+    width: 60%;
     max-width: 1000px;
 }
 
@@ -78,4 +78,5 @@ a {
   height: 29px;
   width: 100%;
 }
+
 
