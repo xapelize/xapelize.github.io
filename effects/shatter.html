@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<body style="margin:0;overflow:hidden;background:black;">
+<input type="file" id="imgInput" style="position:absolute;z-index:10;">
+<canvas id="c"></canvas>
+
+<script>
+const canvas = document.getElementById("c");
+const ctx = canvas.getContext("2d");
+canvas.width = innerWidth;
+canvas.height = innerHeight;
+
+let img, tiles = [], exploded = false;
+const size = 40; 
+const gravity = 0.1; // weaker gravity
+
+const fileInput = document.getElementById("imgInput");
+
+fileInput.onchange = e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  
+  exploded = false;
+  tiles = [];
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  
+  img = new Image();
+  img.onload = () => drawImage();
+  img.src = URL.createObjectURL(file);
+
+  fileInput.style.display = "none";
+};
+
+function drawImage() {
+  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+  tiles = [];
+  for (let y = 0; y < canvas.height; y += size) {
+    for (let x = 0; x < canvas.width; x += size) {
+      tiles.push({x, y, px: x, py: y, vx: 0, vy: 0});
+    }
+  }
+}
+
+document.body.onkeydown = e => {
+  if (e.code === "Space" && !exploded && img) explode();
+};
+
+function explode() {
+  exploded = true;
+  const centerX = canvas.width/2;
+  const centerY = canvas.height/2;
+  tiles.forEach(t => {
+    const dx = t.x - centerX;
+    const dy = t.y - centerY;
+    const dist = Math.sqrt(dx*dx + dy*dy) || 1;
+    // stronger explosion force
+    t.vx = dx/dist * (5 + Math.random()*5);
+    t.vy = dy/dist * (5 + Math.random()*5) - 2; 
+  });
+  animate();
+
+  setTimeout(() => { fileInput.style.display = "block"; }, 5000);
+}
+
+function animate() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  tiles.forEach(t => {
+    t.vy += gravity; // weaker gravity
+    t.px += t.vx;
+    t.py += t.vy;
+    ctx.drawImage(img, t.x, t.y, size, size, t.px, t.py, size, size);
+  });
+  if (exploded) requestAnimationFrame(animate);
+}
+</script>
+</body>
+</html>
