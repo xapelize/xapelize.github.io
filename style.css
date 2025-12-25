@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(0, 12, 26);
+  background-color: rgb(0, 13, 26);
   margin: 0;
   display: flex;
   justify-content: center;
@@ -87,3 +87,4 @@ a {
   height: 29px;
   width: 100%;
 }
+
