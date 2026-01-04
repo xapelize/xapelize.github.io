@@ -59,7 +59,7 @@ img {
 img.small { width: 80% }
 
 video {
-    width: 80%;
+    width: 100%;
 }
 
 summary {
@@ -99,4 +99,5 @@ br {
   height: clamp(18px, 7vw, 50px);
   width: 100%;
 }
+
 
