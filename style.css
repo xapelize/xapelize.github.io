@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(0, 13, 26);
+  background-color: rgb(0, 12, 26);
   margin: 0;
   display: flex;
   justify-content: center;
@@ -14,77 +14,88 @@ body {
     justify-content: flex-start;
     padding-top: 50px;
     color: white;
+    font-size: 25px;
+}
+
+a, h1, h2, h3 {
+  margin: 0 0 0 0;
 }
 
 h1 {
     text-align: center;
-    font-size: 50px;
-    margin: 0;
-    margin-bottom: 10px;
+	font-size: clamp(18px, 7vw, 50px);
+	line-height: 1.2;
+}
+
+h1.big {
+	font-size: clamp(22px, 8vw, 60px);
 }
 
 h2 {
-    font-size: 35px;
-    margin: 0;
-    margin-bottom: 10px;
+	text-align: center;
+    font-size: clamp(18px, 4vw, 35px);
 }
 
-h3 {
-    font-size: 25px;
+h2.big {
+	font-size: clamp(18px, 5vw, 35px);
+}
+
+a, h3 {
+    font-size: clamp(15px, 3vw, 25px);
     font-weight: normal;
-    margin: 0;
-    margin-bottom: 10px;
+}
+
+img,
+video {
+  display: block;
+  margin: 0 auto;
+  max-width: 800px;
 }
 
 img {
-    display: block; 
-    margin: 0 auto;
-    width: 60%;
-    max-width: 1000px;
+    width: 100%;
 }
 
-.small { width: 40% }
+img.small { width: 80% }
 
 video {
-    display: block;
-    margin: 0 auto;
     width: 80%;
-    max-width: 1000px;
-}
-
-details {
-    font-size: 25px;
-    font-weight: normal;
-    margin: 0;
 }
 
 summary {
-    font-size: 30px;
+	margin: 0 0 0 0;
+    font-size: clamp(18px, 4vw, 35px);
     font-weight: bold;
-    margin: 0;
-    margin-bottom: 20px;
     color: red;
     cursor: pointer;
 }
 
 hr {
-    border: 1px solid #a6a6a6;
-    margin: 20px 0;
+    border: 1px solid #525252;
+    margin: clamp(30px, 7vw, 60px); 0;
 }
 
 a {
-    font-size: 25px;
-    font-weight: normal;
-    display: inline-block;
-    margin: 0;
-    margin-bottom: 10px;
+	text-align: center;
     color: #2185ff;
-    line-height: 1.5;
 }
 
-.br {
-  display: block;
-  height: 29px;
+br {
+  height: 30px;
   width: 100%;
 }
 
+.spacer-small {
+  height: clamp(7px, 2vw, 17px);
+  width: 100%;
+}
+
+.spacer {
+  height: clamp(15px, 3.5vw, 25px);
+  width: 100%;
+}
+
+.spacer-big {
+  height: clamp(18px, 7vw, 50px);
+  width: 100%;
+}
