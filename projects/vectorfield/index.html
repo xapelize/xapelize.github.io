@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vector Field</title>
+    <link rel="stylesheet" href="../../style.css"/>
+</head>
+
+<body>
+    <div class="frame">
+        <h1 class="big">~~~<br/>Miniproject 1:</h1>
+        <h1 style="
+            background: linear-gradient(180deg, rgb(0, 255, 0), rgb(6, 54, 0));
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        ">
+            Vector Field
+        </h1>
+        <h1 class="big">~~~</h1>
+        <div class="spacer">&nbsp;</div>
+        <h2><u>TAGS:</u></h2>
+        <div class="spacer-small">&nbsp;</div>
+        <h2>Mathy?</h2>
+        <hr>
+        <div class="spacer">&nbsp;</div>
+        <h3>(Probably ~5 minutes of reading. Maybe?)</h3>
+        <div class="spacer">&nbsp;</div>
+        <h3>Here is an image of the final project:</h3>
+        <div class="spacer">&nbsp;</div>
+        <img src="vectorfield.png"/>
+        <div class="spacer">&nbsp;</div>
+        <h3>Looks cool!</h3>
+        <div class="spacer">&nbsp;</div>
+        <h3>Essentially, what this project is trying to do is trying to find the "<b>lookness</b>" score of the green dots from the red dot.</h3>
+        <div class="spacer">&nbsp;</div>
+        <h3>Whereas the "<b>lookness</b>" score is kinda like 'how off-centered are you looking at?'.</h3>
+        <div class="spacer">&nbsp;</div>
+        <h3>Okay so that can sound a little abstract. It can be a little hard to explain. For demonstration, take a look at this image here:</h3>
+        <div class="spacer">&nbsp;</div>
+        <img src="example3.png"/>
+        <div class="spacer">&nbsp;</div>
+        <h3>Letters are notated besides the green dot so you can know which dot I'm talking about!</h3>
+        <div class="spacer">&nbsp;</div>
+        <h3>So <b>dot A</b> is perfectly infront of the red dot - hence a score of 1; <b>dot B</b> is a little off-center, so it gets a score around 0.6; dot C and dot D gets about 0 and -0.5 since it's VERY off-centered from the red dot's orientation.</h3>
+        <div class="spacer">&nbsp;</div>
+        <h3>We could describe them like 'a little off center' or 'very off-center', buuut... how would we find a specific numerical value for this??</h3>
+        <div class="spacer">&nbsp;</div>
+        <h3>Spoilers ahead...</h3>
+        <div class="spacer">&nbsp;</div>
+        <h3>Fortunately, <i>dot products</i> is the answer! Example of dot products in action:</h3>
+        <div class="spacer">&nbsp;</div>
+        <img src="dotexample.png"/>
+        <div class="spacer">&nbsp;</div>
+        <h3>So, if the two vectors are the same direction, the score will be <b>1</b>; perpendicular would be <b>0</b>; perfectly opposing would be <b>-1</b>; something in-between will have decimal places scores etc.</h3>
+        <div class="spacer">&nbsp;</div>
+        <h3>Now the job to find the 'lookness' score is a lot easier: we have a vector that represents the orientation of the red dot, and another vector that 'points' at the green dot from the red dot (which I placed the vector on the green dots, so it's easier to see), and we can find the score, simply by finding the dot product of these two vectors. And tada!</h3>
+        <div class="spacer">&nbsp;</div>
+        <video src="demonstration.mp4" controls></video>
+        <div class="spacer">&nbsp;</div>
+        <h3>It's quite satisfying isn't it?</h3>
+        <div class="spacer">&nbsp;</div>
+        <h3>This looks interesting, but it actually has some actual use cases! For example, if you want to know if you are 'looking' at an object, but you dont want to use raycasts, since objects that are small can be hard to point at, and it may sometimes feel 'unfair' if you slightly missed at it.</h3>
+        <div class="spacer">&nbsp;</div>
+        <h3>An extended hitbox could fix this issue, but it may be a little finicky and inconsistent. You can instead use this method, set a threshold, say 0.95, so if your camera is pointing at the object and it's juuust close enough, it will select the object.</h3>
+        <div class="spacer">&nbsp;</div>
+        <h3>Thanks for reading!</h3>
+
+        <div class="spacer">&nbsp;</div>
+        <div class="spacer">&nbsp;</div>
+        <div class="spacer">&nbsp;</div>
+    </div>
+</body>
